@@ -18,3 +18,5 @@ EXPOSE 5000
 
 #Indica el comando por defecto que se ejecuta cuando el contenedor arranca. En este caso, inicia tu app Flask (app.py).
 CMD ["python", "app.py"]
+
+#Cambio para generar el archivo de IBM
