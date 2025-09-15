@@ -1,0 +1,26 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Log in to IBM Container Registry
+      uses: ibm-actions/registry-login@v1
+      with:
+        username: ${{ secrets.ICR_USERNAME }}
+        apikey: ${{ secrets.ICR_APIKEY }}
+        region: us-south
+
+    - name: Build Docker image
+      run: docker build -t us.icr.io/nacion-las-marraquetas/mi-app:latest .
+
+    - name: Push Docker image
+      run: docker push us.icr.io/nacion-las-marraquetas/mi-app:latest
