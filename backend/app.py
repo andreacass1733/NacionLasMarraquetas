@@ -9,7 +9,7 @@ def index():
 
 @app.route('/api/message')
 def message():
-    return jsonify({"message": "¡Hola desde Flask en IBM Cloud!"})
+    return jsonify({"message": "¡Hola mundo!"})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
